@@ -1,0 +1,21 @@
+h1 = @game.p1.name
+
+h2 In Play
+ul
+  - @game.p1.deck.battlefield.each do |card|
+    li = card.key
+
+h2 Hand
+ul
+  - @game.p1.deck.hand.each do |card|
+    li = card.key
+
+h2 Discard Pile
+ul
+  - @game.p1.deck.discard_pile.each do |card|
+    li = card.key
+
+h2 Draw Pile
+ul
+  - @game.p1.deck.draw_pile.each do |card|
+    li = card.key

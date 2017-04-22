@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: realms_world_decelopment
+
+test:
+  <<: *default
+  database: realms_world_test
+
+production:
+  <<: *default
+  database: realms_world_production
+  username: realms_world
+  password: <%= ENV['REALMS_WORLD_DATABASE_PASSWORD'] %>
