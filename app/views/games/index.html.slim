@@ -1,0 +1,17 @@
+= button_to "Create Game", games_path
+- if @game.blank?
+  p There's no active games
+- else
+  table
+    thead
+      tr
+        th Player 1
+        th Player 2
+        th
+    tbody
+      - @games.each do |game|
+        tr
+          td = game.player_one.username
+          td = game.player_two.username
+          th = link_to("show", game)
+
