@@ -1,8 +1,8 @@
 App.cable.subscriptions.create("AppearanceChannel", {
   // Called when the subscription is ready for use on the server.
   connected: function() {
-    this.install();
-    this.appear();
+    // this.install();
+    // this.appear();
   },
 
   // Called when the WebSocket connection is closed.

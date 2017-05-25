@@ -3,7 +3,8 @@ module Games
     before_action :setup_game
 
     def create
-      @game.decisions.create!(params.require(:decision).permit(:key))
+      decision = @game.decisions.create!(params.require(:decision).permit(:key))
+      DecisionsChannel.broadcast_to(@game, decision)
       redirect_to @game
     end
 
