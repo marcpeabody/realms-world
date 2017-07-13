@@ -9,7 +9,7 @@ class Game < ApplicationRecord
   def game_state
     @game_state ||= begin
       game = Realms::Game.new(seed.to_i).start
-      decisions.each do |decision|
+      decisions.order(:id).each do |decision|
         game.decide(decision.key)
       end
       game

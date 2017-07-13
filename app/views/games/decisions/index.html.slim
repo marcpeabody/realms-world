@@ -1,0 +1,11 @@
+pre
+  = "describe 'Game #{@game.id} test' do\n"
+  = "  let(:seed) { #{@game.seed} }\n"
+  = "  let(:game) { described_class.new(seed) }\n"
+  = "  it 'plays successfully' do\n"
+  = "    game.start\n"
+
+  - @decisions.order(:id).each do |decision|
+    = format_rspec(decision)
+  = "  end\n"
+  = "end\n"
