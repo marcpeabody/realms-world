@@ -2,6 +2,7 @@
 - p1_turn = @game_state.active_player == @game_state.p1
 - p2_turn = @game_state.active_player == @game_state.p2
 
+
 table
   thead
     tr
@@ -10,7 +11,9 @@ table
   tbody
     tr
       td Trade Row
-      td = @game_state.trade_deck.trade_row.cards.map(&:key)
+      td
+        - @game_state.trade_deck.trade_row.cards.each do |card|
+          img src="#{image(card)}"
     tr
       td Draw Pile
       td = @game_state.trade_deck.draw_pile.cards.map(&:key)
