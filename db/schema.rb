@@ -15,21 +15,21 @@ ActiveRecord::Schema.define(version: 20170310040730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "decisions", id: :bigserial, force: :cascade do |t|
+  create_table "decisions", force: :cascade do |t|
     t.string "key"
     t.bigint "game_id", null: false
   end
 
-  create_table "games", id: :bigserial, force: :cascade do |t|
-    t.string   "seed"
-    t.bigint   "player_one_id", null: false
-    t.bigint   "player_two_id", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+  create_table "games", force: :cascade do |t|
+    t.string "seed"
+    t.bigint "player_one_id", null: false
+    t.bigint "player_two_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "players", id: :bigserial, force: :cascade do |t|
-    t.string   "username"
+  create_table "players", force: :cascade do |t|
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
