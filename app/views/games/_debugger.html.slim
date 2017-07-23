@@ -1,0 +1,37 @@
+- game_state = @game.game_state
+- p1_turn = game_state.active_player == game_state.p1
+- p2_turn = game_state.active_player == game_state.p2
+
+table
+  thead
+    tr
+      th Player
+      th Authority
+      th Trade
+      th Combat
+      th Decision
+  tbody
+    caption Debugger
+    tr
+      td = game_state.p1.name
+      td = game_state.p1.authority
+      td = p1_turn ? game_state.active_turn.combat : "N/A"
+      td = p1_turn ? game_state.active_turn.trade : "N/A"
+      td
+        -if p1_turn
+          = form_for([game, Decision.new]) do |f|
+            = f.select :key, game_state.current_choice.options.map { |k,v| [k,k] }
+            = f.submit
+    tr
+      td = game_state.p2.name
+      td = game_state.p2.authority
+      td = p2_turn ? game_state.active_turn.combat : "N/A"
+      td = p2_turn ? game_state.active_turn.trade : "N/A"
+      td
+        -if p2_turn
+          = form_for([game, Decision.new]) do |f|
+            = f.select :key, game_state.current_choice.options.map { |k,v| [k,k] }
+            = f.submit
+
+javascript:
+  $("form.new_decision").on("change", function() { $(this).submit(); });

@@ -12,10 +12,10 @@ module ApplicationHelper
   end
 
   def image(card)
-    src = {
+    {
       :scout => "http://www.starrealms.com/wp-content/uploads/2015/05/scout_fixed-213x300.jpg",
       :viper => "http://www.starrealms.com/wp-content/uploads/2015/05/viper-213x300.jpg",
-      :exporer => "http://www.starrealms.com/wp-content/uploads/2015/05/explorer-213x300.jpg",
+      :explorer => "http://www.starrealms.com/wp-content/uploads/2015/05/explorer-213x300.jpg",
       :blob_fighter => "http://www.starrealms.com/wp-content/uploads/2015/05/CardsWBorders_0091_001_BlobFighter-213x300.jpg",
       :battle_pod => "http://www.starrealms.com/wp-content/uploads/2015/05/CardsWBorders_0090_008_BattlePod-213x300.jpg",
       :trade_pod => "http://www.starrealms.com/wp-content/uploads/2015/05/CardsWBorders_0089_012_TradePod-213x300.jpg",
@@ -62,6 +62,6 @@ module ApplicationHelper
       :royal_redoubt => "http://www.starrealms.com/wp-content/uploads/2015/05/CardsWBorders_0008_114_RoyalRedoubt-e1431057746203-300x213.jpg",
       :dreadnaught => "http://www.starrealms.com/wp-content/uploads/2015/05/CardsWBorders_0059_118_Dreadnaught-213x300.jpg",
       :fleet_hq => "http://www.starrealms.com/wp-content/uploads/2015/05/CardsWBorders_0006_120_FleetHQ-e1431057770388-300x213.jpg",
-    }.fetch(card.name.to_sym)
+    }.fetch((card.try(:name) || card).to_sym)
   end
 end
