@@ -17,6 +17,7 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'slim'
 gem 'realms', path: "../realms"
+gem 'webpacker', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
